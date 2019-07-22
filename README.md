@@ -4,8 +4,12 @@
 
 From the brief:
 
-	"item ‘A’ might cost 50 pounds individually, but this week we have a special offer: buy three ‘A’s and they’ll cost you 130"
-	"Our checkout accepts items in any order, so that if we scan a B, an A, and another B, we’ll recognize the two B’s and price them at..."
+	"item ‘A’ might cost 50 pounds individually
+		but this week we have a special offer:
+			buy three ‘A’s and they’ll cost you 130"
+	"Our checkout accepts items in any order,
+		so that if we scan a B, an A, and another B,
+			we’ll recognize the two B’s and price them at..."
 
 Are offers once per basket or unlimited?, i.e., if you have 7 "A"s in total it can be:
 
