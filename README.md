@@ -3,22 +3,27 @@
 ## Discussion
 
 From the brief:
-	- "item ‘A’ might cost 50 pounds individually, but this week we have a special offer: buy three ‘A’s and they’ll cost you 130"
-	- "Our checkout accepts items in any order, so that if we scan a B, an A, and another B, we’ll recognize the two B’s and price them at..."
+
+	"item ‘A’ might cost 50 pounds individually, but this week we have a special offer: buy three ‘A’s and they’ll cost you 130"
+	"Our checkout accepts items in any order, so that if we scan a B, an A, and another B, we’ll recognize the two B’s and price them at..."
 
 Are offers once per basket or unlimited?, i.e., if you have 7 "A"s in total it can be:
-		a) 2 x offer, 1x full price
-		b) 1 x offer, 4x full price
+
+	a) 2 x offer, 1x full price
+	b) 1 x offer, 4x full price
 
 Simiarly, there could be multiple offers for the same product:
+
 	- 2xA or 8xA or 50xA price break points
 		- e.g., 3 for £5 or 6 for £8
 
 Or offers spanning products:
+
 	- 2xA and 1xB
 		- e.g., a Tesco Meal Deal!
 
 Current solution:
+
 	- offers repeat
 	- one offer per product
 	- offers do not span products
