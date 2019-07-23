@@ -17,14 +17,18 @@ class Basket(object):
         total_price = 0.0
         for sku in basket:
             prod = Product.query.filter_by(sku=sku).first()
-
-# quantity <= qty in basket
             offs = Offer.query.filter_by(product_id=prod.id, enabled=True).first()
 
-            print(prod)
             if offs != None:
-                print(offs)
-                #print(basket[sku]) # qty left
-
+                while basket[sku] > 0:
+                    if offs.quantity <= basket[sku]:
+                        # print("GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO COMPARE")
+                        total_price = total_price + offs.price
+                        basket[sku] = basket[sku] - offs.quantity
+                    else:
+                        total_price = total_price + (prod.price*basket[sku])
+                        basket[sku] = 0
+            else:
+                total_price = total_price + (prod.price*basket[sku])
 
         return total_price

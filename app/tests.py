@@ -30,15 +30,15 @@ class CreateTestApp(TestBase):
 
 class TestModels(TestBase):
     def test(self):
-        print("Testing 'all' and 'filter' for...")
+        print("\n>> TESTING MODELS - 'all' and 'filter' for...")
 
-        print("Products")
+        print(">>> Products")
         data = Product.query.filter().all()
         self.assertTrue( len(data) > 0, "No Products in database!")
         if len(data) > 0:
             self.assertIsInstance(data[0], Product, "Failed - Products model!")
 
-        print("Offers")
+        print(">>> Offers\n")
         data = Offer.query.filter().all()
         self.assertTrue( len(data) > 0, "No Offers in database!")
         if len(data) > 0:
@@ -46,30 +46,30 @@ class TestModels(TestBase):
 
 class TestBasket(TestBase):
     def test(self):
-        print("Testing basket functionality")
+        print("\n>> TESTING BASKET - checkout calculations...")
 
-        print("PRODUCTS in basket, single, multiple.")
+        print(">>> PRODUCTS in basket, single, multiple.")
         self.assertEquals(50.0, Basket.price_of(["A",]))
         self.assertEquals(80.0, Basket.price_of(["A","B"]))
         self.assertEquals(115.0, Basket.price_of(["C","D","B","A"]))
         self.assertEquals(100.0, Basket.price_of(["A","A"]))
 
-        print("PRODUCTS of same type in basket, no offers")
+        print(">>> PRODUCTS of same type in basket, no offers")
         self.assertEquals(100.0, Basket.price_of(["C","C","C","C","C"]))
 
-        print("An OFFER is applicable.")
+        print(">>> An OFFER is applicable.")
         self.assertEquals(130.0, Basket.price_of(["A","A","A"]))
         self.assertEquals(45.0, Basket.price_of(["B","B"]))
 
-        print("More than 1 OFFER is applicable, cart is jumbled up.")
+        print(">>> More than 1 OFFER is applicable, cart is jumbled up.")
         self.assertEquals(175.0, Basket.price_of(["A","B","A","B","A"]))
 
         # Multiple Offers of same and different type
-        print("Multiple OFFERS of the same and different type.")
+        print(">>> Multiple OFFERS of the same and different type.")
         self.assertEquals(350.0, Basket.price_of(["A","A","A","B","B","A","A","A","B","B"]))
 
         # Left over items - i.e., offer then some left over at full price
-        print("OFFERS where some left in basket get full price.")
+        print(">>> OFFERS where some left in basket get full price.\n")
         self.assertEquals(75.0, Basket.price_of(["B","B","B"]))
 
 class TestDDCommand(Command):

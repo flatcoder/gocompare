@@ -84,14 +84,16 @@ In other words, the Docker version warrants a big "TL;DR" over the "Usage and Te
 - Docker
 - SQLAlchemy
 
-** For actual production, a real database. We're using sqlite here because it's easy to give you a ZIP that'll work out the box! Flask ought to be database agnostic, and it is, to a point.  Until you try a decimal with SQLite....
+** For actual production, a real database. We're using sqlite here because it's easy to give you a ZIP that'll work out the box! Flask ought to be database agnostic, and it is, to a point...
 
 	Warning: "Dialect sqlite+pysqlite does *not* support Decimal objects natively".
 
-...it will cast, but that's just asking for trouble with precision and rounding.  For now, in this exercise, we use Float for money, not Decimal.
+...it will cast, but that's just asking for trouble with precision and rounding.  For now, in this exercise, we use a Float for money, as it supports pretty much any underlying database. If we learn otherwise, we can revisit this, it's a tiny small migration issue.
 
 ## Closing Notes
 
 - Depending on requirements, Django may be a better fit than Flask, it depends on the bigger picture, really.
 - Currently assuming "no auth" but you'll see the hooks are included ready to add users.
 - Be useful to add automated documentation (Pydoc or similar)?
+- Final DB, decision may have minor effect on models (e.g., Float vs. Decimal or DB supports CURRENT_TIMESTAMP or not etc.).
+- Final DB, consider DB encoding, always. And locale/i18n.
