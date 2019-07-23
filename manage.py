@@ -12,7 +12,7 @@ import os
 # if using auth...
 # from flask_user import login_required, current_user, user_changed_password
 
-# Environment
+# Environment - note can override with an `export FLASK_ENV="development"` in shell.
 env = "test"
 if os.getenv('FLASK_ENV') != None:
     env = os.getenv('FLASK_ENV')
