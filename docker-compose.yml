@@ -6,6 +6,7 @@ services:
     restart: always
     build: .
     # command = run on start-up, entrypoint = exclusive...
+    # currently set to test env in Dockerfile
     entrypoint: ["./docker_launcher.sh"]
     volumes:
       - .:/code

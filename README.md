@@ -34,7 +34,7 @@ Current solution:
 
 ## Installation
 
-Note in `manager.py` the environment is set to "test" as there is no UI, only testing.  You can adjust `app/config.py` to suit (note it supports dev, test and production).  Then:
+Note in `manager.py` the environment is set to `test` as there is no UI, only testing.  You can adjust `app/config.py` to suit (note it supports `dev`, `test` and `production`).  Then:
 
 ## Developer Installation - Python virtual environment
 
@@ -67,6 +67,8 @@ You can also pass `-h 0.0.0.0` (host) and `-p 5000` (port) options to the runser
 	http://127.0.0.1:5000/
 
 ## Real World Install - using Docker
+
+Set the environment by editing `Dockerfile` (default is `test`)
 
 	docker-compose up --build
 
