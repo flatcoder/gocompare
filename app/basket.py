@@ -17,9 +17,8 @@ class Basket(object):
         total_price = 0.0
         for sku in basket:
             prod = Product.query.filter_by(sku=sku).first()
-            # see README.md - only one active offer per product, offers are per single product
-# quantity <= qty in basket
 
+# quantity <= qty in basket
             offs = Offer.query.filter_by(product_id=prod.id, enabled=True).first()
 
             print(prod)
